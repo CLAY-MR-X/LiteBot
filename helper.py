@@ -5,12 +5,18 @@ from io import StringIO
 import sys
 import random
 
+#как получить апи айди и апи хеш читайте тут https://docs.pyrogram.org/intro/setup
+
+global you_id
+
+you_id=Ваш айди аккаунта
+
 app = Client("name", 
-                      api_id=id,
-                      api_hash="hash")
+                      api_id=Ваш апи айди,
+                      api_hash="ваш апи хеш")
 @app.on_message(Filters.text)
 def hello(client, m):
-	if m.from_user.id==677370194:
+	if m.from_user.id==you_id:
 		if "py3" in m.text.lower():
 			script=m.text.replace("py3 ", "")
 			old_stdout = sys.stdout
